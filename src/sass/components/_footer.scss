@@ -1,0 +1,103 @@
+.footer {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  padding-bottom: 27px;
+  padding-top: 30px;
+
+  position: absolute;
+  bottom: -88px;
+  left: 0;
+
+  text-align: center;
+
+  @media screen and (min-width: $tablet) {
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+
+    border: 1px solid $elements-border-color;
+    border-radius: 216px 216px 0 0;
+
+    @media screen and (min-width: $tablet) {
+      width: 126px;
+      height: 63px;
+      bottom: -6px;
+      right: 50%;
+      transform: translateX(50%);
+      margin-right: 298px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: 216px;
+      height: 108px;
+      margin-right: 525px;
+    }
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    background: linear-gradient(
+      151.61deg,
+      rgba(196, 196, 196, 0.03) -7.48%,
+      rgba(196, 196, 196, 0) 106.62%
+    );
+    box-sizing: border-box;
+    border-radius: 136px 136px 0 0;
+
+    @media screen and (min-width: $tablet) {
+      width: 80px;
+      height: 40px;
+      bottom: -6px;
+      right: 50%;
+      transform: translateX(50%);
+      margin-right: 298px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: 136px;
+      height: 68px;
+      margin-right: 525px;
+    }
+  }
+}
+
+.footer .container {
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 1px;
+    background: $elements-border-color;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $tablet) {
+      top: -88px;
+      bottom: -6px;
+      right: 50%;
+      margin-right: -299px;
+    }
+
+    @media screen and (min-width: $desktop) {
+      margin-right: -525px;
+    }
+  }
+}
+
+.copyright-text {
+  font-family: $font-montserrat;
+  @include font-data(13px, $footer-text-color, 400, 1.21);
+
+  @media screen and (min-width: $tablet) {
+    @include font-data(16px, $footer-text-color, 400, 1.25);
+  }
+}

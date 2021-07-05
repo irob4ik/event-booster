@@ -1,0 +1,33 @@
+<section class="header">
+    <div class="bcg-logo"></div>
+    <a href="#">
+        <picture>
+            <source media="(min-width: 1280px)" srcset="
+                                ./images/logo-pc.png 1x,
+                                ./images/logo-pc@2x.png 2x
+                            " />
+            <source media="(min-width: 768px)" srcset="
+                            ./images/logo-tablet.png    1x,
+                                ./images/logo-tablet@2x.png 2x
+                            " />
+            <img srcset="
+                                ./images/logo-mobile.png    1x,
+                                ./images/logo-mobile@2x.png 2x
+                            " src="./images/logo-mobile.png" alt="Logo" class="img__logo" loading="lazy" />
+        </picture>
+    </a>
+    <div class="container">
+        <h1 class="title">FIND BEST EVENTS<br>
+            AROUND THE WORLD</h1>
+        
+        <div class="form-container">
+          <form class="search-form js-form-keyword" id="search-form">
+              <input type="text" name="query" autocomplete="off" placeholder="Start searching" class="input"/>
+          </form>
+
+          <select id="selectCountry" class="search-form js-form-country" aria-label="Default select example" >
+          </select>
+        </div>
+    </div>
+</section>
+<div>

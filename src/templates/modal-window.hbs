@@ -1,0 +1,67 @@
+<div class="modal">
+    <button class="close-window">&#215;</button>
+{{#each images}}
+    {{#unless fallback}}
+        {{#if url.length}}
+            <img class="preview-circle" src='{{url}}' alt='' width="132"/>
+            {{ else }}
+            <img class='preview-circle' src='https://s1.ticketm.net/dam/c/8cf/a6653880-7899-4f67-8067-1f95f4d158cf_124761_ARTIST_PAGE_3_2.jpg'
+                alt='' />
+        {{/if}}
+    {{/unless}}
+{{/each}}
+
+<div class="foto-info">
+    {{#each images}}
+        {{#unless fallback}}
+            {{#if url.length}}
+                <img class="event-pic-big" src='{{url}}' alt='' width="360" />
+                {{ else }}
+                <img class='event-pic-big' src='https://s1.ticketm.net/dam/c/8cf/a6653880-7899-4f67-8067-1f95f4d158cf_124761_ARTIST_PAGE_3_2.jpg'
+                alt='' />
+            {{/if}}
+        {{/unless}}
+    {{/each}}
+
+    <ul class="event-info">
+        <li class="list-item">
+            <h3 class="event-title-modal">INFO</h3>
+            <p class="text-info">{{name}}</p>
+            <p class="text-info additional">* Please, visit the official web-site of the event for more information</p>
+        </li>
+       
+       <li class="list-item">
+            <h3 class="event-title-modal">WHEN</h3>
+            <p class="text-info date-time-modal"><span class="date-modal">{{dates.start.localDate}}</span><span
+                    class="time-modal">{{dates.start.localTime}}</span></p>
+       </li>
+
+       <li class="list-item">
+            <h3 class="event-title-modal">WHERE</h3>
+            {{#if _embedded.venues.[0].city.name.length}}
+            <p class="text-info event-location-modal"><span class="country-city">{{_embedded.venues.[0].country.name}}, {{_embedded.venues.[0].city.name}}</span><span class="venue">{{_embedded.venues.[0].address.line1}}</span></p>
+            {{ else }}
+            <p class="text-info"><a href="{{url}}" target="_blank" class="">=> Please, visit the official web-site of the event for more information</a></p>
+            {{/if}}
+       </li>
+
+        <li class="list-item">
+            <h3 class="event-title-modal">WHO</h3>
+            <p class="text-info">{{name}}</p>
+        </li>
+
+       <li class="list-item">
+            <h3 class="event-title-modal">PRICES</h3>
+            {{#if priceRanges.length}}
+            <div class="price-line">
+                <p class="text-info">{{priceRanges.0.type}} {{priceRanges.0.min}}-{{priceRanges.0.max }} {{priceRanges.0.currency}}</p>
+            </div>
+            <a href="{{url}}" target="_blank" class="buy-ticket-button">BUY TICKETS</a>
+            {{ else }}
+            <p class="text-info"><a href="{{url}}" target="_blank" class="event-website">=> Please, visit the official web-site of the event for more information</a></p>
+            {{/if}}
+       </li>
+    </ul>
+</div>
+<button class="more-author-events"><a href="{{url}}" target="_blank" class="">OFFICIAL EVENT WEB-SITE</a></button>
+</div>

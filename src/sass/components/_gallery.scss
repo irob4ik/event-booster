@@ -1,0 +1,249 @@
+.gallery {
+  position: relative;
+  top: -46px;
+  z-index: 4;
+}
+
+.card-set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin-bottom: 80px;
+
+  @media screen and (min-width: $mobile) and (max-width: $max-mobile) {
+    margin-top: -39px;
+    margin-left: -14px;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $max-tablet) {
+    margin-top: -58px;
+    margin-left: -27px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: -63px;
+    margin-left: -70px;
+  }
+}
+
+.item-event {
+  position: relative;
+  top: 0;
+  left: 0;
+
+  @media screen and (min-width: $mobile) and (max-width: $max-mobile) {
+    margin-top: 39px;
+    margin-left: 14px;
+    flex-basis: calc(100% / 2 - 14px);
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: $max-tablet) {
+    margin-top: 58px;
+    margin-left: 27px;
+    flex-basis: calc(100% / 3 - 27px);
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-top: 63px;
+    margin-left: 70px;
+    flex-basis: calc(100% / 4 - 70px);
+  }
+
+  &::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    border: 1px solid rgba(220, 86, 197, 0.3);
+    border-radius: 50px 0px;
+
+    @media screen and (min-width: $mobile) {
+      width: 110px;
+      height: 100px;
+      top: -10px;
+      right: -10px;
+    }
+
+    @media screen and (min-width: $tablet) {
+      width: 153px;
+      height: 143px;
+      top: -14px;
+      right: -14px;
+    }
+  }
+}
+
+.card {
+  text-align: center;
+  border-radius: 50px 0 0 0;
+  // transition: all 0.5s;
+  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  // &:focus,
+  // &:hover {
+  //   transform: scale(1.15);
+  // }
+}
+
+.card-thumb {
+  overflow: hidden;
+  border-radius: 50px 0px;
+}
+
+.card-image {
+  overflow: hidden;
+  @media screen and (min-width: $mobile) {
+    width: 128px;
+    height: 161px;
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 180px;
+    height: 227px;
+    object-fit: cover;
+  }
+}
+
+.event-info-thumb {
+  padding-top: 5px;
+  font-family: $font-montserrat;
+
+  @media screen and (min-width: $mobile) {
+    .event-name {
+      @include font-data(14px, $title-text-color, 700, 1.2);
+    }
+
+    .event-local-date {
+      @include font-data(14px, $subtitle-text-color, 400, 1.2);
+    }
+
+    .location-link {
+      @include font-data(12px, $subtitle-text-color, 600, 1.25);
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    .event-name {
+      @include font-data(16px, $title-text-color, 700, 1.25);
+    }
+
+    .event-local-date {
+      @include font-data(16px, $subtitle-text-color, 400, 1.25);
+    }
+
+    .location-link {
+      @include font-data(14px, $subtitle-text-color, 600, 1.2);
+    }
+  }
+}
+
+.event-name,
+.event-local-date {
+  margin-bottom: 5px;
+}
+
+.location-link::before {
+  content: url('../images/location.svg');
+}
+
+.tui-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tui-page-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 12px;
+  margin-left: 5px;
+  height: 30px;
+  width: 30px;
+
+  color: $subtitle-text-color;
+
+  &:focus,
+  &:hover {
+    color: $title-text-color;
+  }
+
+  &.active {
+    border-style: solid;
+    border: 1px solid $title-text-color;
+    color: $title-text-color;
+    border-radius: 10px 0px;
+  }
+}
+
+.tui-first:before {
+  content: '\00ab';
+  color: inherit;
+}
+
+.tui-last:after {
+  content: '\00BB';
+  color: inherit;
+}
+
+.tui-next,
+.tui-prev {
+  display: none;
+}
+
+.default-info {
+  padding-top: 30px;
+  color: $title-text-color;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@keyframes walkanim {
+  to {
+    background-position: 100% 0;
+  }
+}
+@keyframes stroll {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(500%);
+  }
+}
+
+#walk-container {
+  display: block;
+  position: relative;
+  width: 30%;
+  padding-bottom: 80%;
+  animation: stroll 13s linear infinite;
+
+  @media screen and (min-width: $tablet) {
+    width: 20%;
+    padding-bottom: 30%;
+  }
+}
+
+#walk {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: url('../images/walk-sequence.svg');
+  background-repeat: no-repeat;
+  background-size: 800%;
+  animation: walkanim 1s infinite steps(7);
+
+  @media screen and (min-width: $tablet) {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.elements-none {
+  display: none;
+}

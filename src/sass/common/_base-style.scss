@@ -1,0 +1,67 @@
+// Standard settings
+body {
+  position: relative;
+  min-height: 90vh;
+  background-color: $modal-text;
+  background-image: url('../images/noise-body.png');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+
+  @media screen and (min-width: $mobile) {
+    width: $mobile;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: $tablet;
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: $desktop;
+    padding-left: 175px;
+    padding-right: 175px;
+  }
+}
